@@ -1,0 +1,14 @@
+inbox = "~/AI_OS/00_Inbox"
+projects_root = "~/AI_OS/01_Projekte"
+unclear_dir = "~/AI_OS/99_Unklar"
+log_file = "~/AI_OS/logs/document-router.jsonl"
+rules_file = "routing_rules.toml"
+auto_route_threshold = 0.85
+review_threshold = 0.60
+poll_seconds = 3
+stable_checks = 2
+
+[ollama]
+enabled = false
+url = "http://127.0.0.1:11434"
+model = "qwen2.5:3b"

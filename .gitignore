@@ -1,0 +1,13 @@
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.DS_Store
+config.toml
+routing_rules.toml
+*.log
+00_Inbox/
+01_Projekte/
+99_Unklar/
+data/
+output/
