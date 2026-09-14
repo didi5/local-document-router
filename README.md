@@ -51,20 +51,7 @@ cp routing_rules.example.toml routing_rules.toml
 
 The example config assumes `config.toml` lives in `02_Apps/local-document-router/` inside the AI_OS workspace and uses paths relative to that location. Edit `routing_rules.toml` to add project-specific terms.
 
-The expected workspace layout:
 
-```text
-AI_OS/
-├── 00_INBOX/
-├── 01_Projekte/
-│   ├── Overgrid/
-│   ├── Healthtechplatform/
-│   └── Any_New_Project/
-├── 02_Apps/local-document-router/
-├── 06_Admin/
-│   └── logs/document-router.jsonl
-└── 99_Other/Router_Review/
-```
 
 A routed PDF and its Markdown conversion land directly in `01_Projekte/<Project>/`, side by side, with no extra subfolders. Documents the router isn't confident about go straight into `99_Other/Router_Review/`.
 
