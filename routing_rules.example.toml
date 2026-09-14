@@ -1,8 +1,14 @@
-[projects.SolAegis]
-keywords = ["solaegis", "mace", "cardiovascular", "drg", "early warning", "health economics", "charite", "dhzc"]
-
 [projects.Overgrid]
 keywords = ["overgrid", "nato", "c2", "sensor fusion", "protocol", "interoperability", "defence", "defense"]
 
-[projects.Sino_German]
-keywords = ["i4career", "ed4change", "german uds", "sino-german", "chinese students"]
+[projects.Healthtechplatform]
+keywords = ["health tech", "healthtech", "mace", "cardiovascular", "drg", "health economics", "charite", "dhzc"]
+
+[projects.charite]
+keywords = ["charite", "dhzc", "hospital", "clinical", "patient"]
+
+[projects.Linkedin-OS]
+keywords = ["linkedin", "content calendar", "post draft", "personal brand"]
+
+[projects.agents]
+keywords = ["agent", "workflow", "automation", "claude", "mcp"]

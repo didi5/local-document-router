@@ -65,19 +65,14 @@ def route_pdf(source: Path, config: Config, converter: Callable[[Path], str] = c
 
     approved = decision.project is not None and decision.confidence >= config.auto_route_threshold
     if approved:
-        root = config.projects_root / decision.project
-        pdf_dir = root / "01_Quellen_PDF"
-        md_dir = root / "02_Quellen_MD"
+        target_dir = config.projects_root / decision.project
         status = "routed"
     else:
-        root = config.unclear_dir / source.stem
-        pdf_dir = root
-        md_dir = root
+        target_dir = config.unclear_dir
         status = "review_required"
-    pdf_dir.mkdir(parents=True, exist_ok=True)
-    md_dir.mkdir(parents=True, exist_ok=True)
-    pdf_target = _unique(pdf_dir / source.name)
-    md_target = _unique(md_dir / f"{source.stem}.md")
+    target_dir.mkdir(parents=True, exist_ok=True)
+    pdf_target = _unique(target_dir / source.name)
+    md_target = _unique(target_dir / f"{source.stem}.md")
     shutil.move(str(source), str(pdf_target))
     md_target.write_text(markdown, encoding="utf-8")
     result = RouteResult(

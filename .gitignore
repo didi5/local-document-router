@@ -6,8 +6,8 @@ __pycache__/
 config.toml
 routing_rules.toml
 *.log
-00_Inbox/
+00_INBOX/
 01_Projekte/
-99_Unklar/
+99_Other/
 data/
 output/

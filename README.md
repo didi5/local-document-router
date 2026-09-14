@@ -17,9 +17,9 @@ The default path uses no paid API. MarkItDown performs conversion. Deterministic
 - Converts local PDFs to Markdown with Microsoft MarkItDown
 - Discovers every project directory under `01_Projekte`
 - Combines filename, document content, project names, and configurable keywords
-- Sends uncertain or ambiguous documents to `99_Unklar`
+- Sends uncertain or ambiguous documents to `99_Other/Router_Review`
 - Never overwrites an existing file
-- Keeps the original PDF beside the routed Markdown output
+- Stores the PDF and its Markdown conversion directly together in the project folder — no extra subfolders
 - Writes a JSON Lines audit log with confidence, reason, destination, and SHA-256
 - Runs once, continuously, or automatically through a macOS LaunchAgent
 - Keeps private documents, local configuration, and outputs out of Git
@@ -49,20 +49,24 @@ cp config.example.toml config.toml
 cp routing_rules.example.toml routing_rules.toml
 ```
 
-Edit `config.toml` so the paths point to your local workspace. Edit `routing_rules.toml` to add project-specific terms.
+The example config assumes `config.toml` lives in `02_Apps/local-document-router/` inside the AI_OS workspace and uses paths relative to that location. Edit `routing_rules.toml` to add project-specific terms.
 
-Create project folders such as:
+The expected workspace layout:
 
 ```text
 AI_OS/
-├── 00_Inbox/
+├── 00_INBOX/
 ├── 01_Projekte/
-│   ├── SolAegis/
 │   ├── Overgrid/
-    ├── Health Tech platform/
+│   ├── Healthtechplatform/
 │   └── Any_New_Project/
-└── 99_Unklar/
+├── 02_Apps/local-document-router/
+├── 06_Admin/
+│   └── logs/document-router.jsonl
+└── 99_Other/Router_Review/
 ```
+
+A routed PDF and its Markdown conversion land directly in `01_Projekte/<Project>/`, side by side, with no extra subfolders. Documents the router isn't confident about go straight into `99_Other/Router_Review/`.
 
 Check the setup:
 
@@ -97,7 +101,7 @@ Stop it:
 launchctl bootout gui/$(id -u) "$HOME/Library/LaunchAgents/com.dilemkaya.document-router.plist"
 ```
 
-After installation, dropping a PDF into `00_Inbox` triggers processing without a terminal command.
+After installation, dropping a PDF into `00_INBOX` triggers processing without a terminal command.
 
 ## Optional local AI with Ollama
 

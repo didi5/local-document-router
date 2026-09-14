@@ -1,7 +1,7 @@
-inbox = "~/AI_OS/00_Inbox"
-projects_root = "~/AI_OS/01_Projekte"
-unclear_dir = "~/AI_OS/99_Unklar"
-log_file = "~/AI_OS/logs/document-router.jsonl"
+inbox = "../../00_INBOX"
+projects_root = "../../01_Projekte"
+unclear_dir = "../../99_Other/Router_Review"
+log_file = "../../06_Admin/logs/document-router.jsonl"
 rules_file = "routing_rules.toml"
 auto_route_threshold = 0.85
 review_threshold = 0.60
